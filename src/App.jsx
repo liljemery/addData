@@ -36,9 +36,9 @@ const handleSubmit = (e) => {
     Imagen: imagen,
   };
   
-  const { Titulo, Director, Sinopsis, Reparto, Duracion, Genero, Estreno, Trailler, Imagen } =nuevaPelicula
+  const { Titulo, Director, Sinopsis, Reparto, Duracion, Genero, Estreno, Trailer, Imagen } =nuevaPelicula
 
-  axios.post('http://localhost:7058/api/Peliculas', { Titulo, Director, Sinopsis, Reparto, Duracion, Genero, Estreno, Trailler, Imagen })
+  axios.post('http://localhost:7058/api/Peliculas', { Titulo, Director, Sinopsis, Reparto, Duracion, Genero, Estreno, Trailer, Imagen })
     .then((response) => {
       console.log(response.data);
     })
@@ -81,7 +81,7 @@ const handleSubmit = (e) => {
         <input type="text" value={trailer} onChange={(e)=>{setTrailer(e.target.value)}} id="@Trailer" />
 
         <label htmlFor="@img" className='h4 my-1'>Imagen</label>
-        <input type="file" value={imagen} onChange={(e)=>{setImagen(e.target.value)}} id="@img" />
+        <input type="file"  onChange={(e)=>{setImagen(e.target.files[0])}} id="@img" />
         
         <button className='mt-3 btn btn-primary' onClick={(e)=>{handleSubmit(e)}}>Subir Pelicula</button>
       </form>
