@@ -44,6 +44,15 @@ const handleSubmit = (e) => {
     .catch((error) => {
       console.error('Error al insertar la película:', error);
     });
+    setTitulo('')
+    setDirector('')
+    Sinopsis('')
+    setReparto('')
+    setDuracion('')
+    setGenero('')
+    setEstreno('')
+    setTrailer('')
+    setImagen('')
 };
 
 
