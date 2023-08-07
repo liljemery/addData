@@ -10,8 +10,7 @@ function App() {
   const [genero, setGenero] = useState('')
   const [estreno, setEstreno] = useState('')
   const [trailer, setTrailer] = useState('')
-  const [imagen, setImagen] = useState(null)
-  const [pelicula, setPelicula] = useState({})
+  const [imagen, setImagen] = useState('')
   const [err, setErr] = useState('')
 
 // ... (resto del código) ...
@@ -81,7 +80,7 @@ const handleSubmit = (e) => {
         <input type="text" value={trailer} onChange={(e)=>{setTrailer(e.target.value)}} id="@Trailer" />
 
         <label htmlFor="@img" className='h4 my-1'>Imagen</label>
-        <input type="file"  onChange={(e)=>{setImagen(e.target.files[0])}} id="@img" />
+        <input type="text" value={imagen}  onChange={(e)=>{setImagen(e.target.value)}} id="@img" />
         
         <button className='mt-3 btn btn-primary' onClick={(e)=>{handleSubmit(e)}}>Subir Pelicula</button>
       </form>
