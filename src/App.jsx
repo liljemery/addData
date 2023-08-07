@@ -14,29 +14,39 @@ function App() {
   const [pelicula, setPelicula] = useState({})
   const [err, setErr] = useState('')
 
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    if(titulo === '' || director === '' || sinopsis === '' || reparto === '' || duracion === '' || genero === '' || estreno === '' || trailer === '' || imagen === null){
-      setErr("Recuerda llenar todos los campos")
-      return
-    }
-    setErr('')
-    setPelicula(
-      {
-        'Titulo': titulo,
-        'Director': director,
-        'Sinopsis': sinopsis,
-        'Reparto': reparto,
-        'Duracion': duracion,
-        'Genero': genero,
-        'Estreno': estreno,
-        'Trailer': trailer,
-        'Imagen': imagen
-      }
-    )
-    axios.post('https://localhost:7058/api/Peliculas', {pelicula})
-    
+// ... (resto del código) ...
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if (titulo === '' || director === '' || sinopsis === '' || reparto === '' || duracion === '' || genero === '' || estreno === '' || trailer === '' || imagen === null) {
+    setErr('Recuerda llenar todos los campos');
+    return;
   }
+  setErr('');
+
+  const nuevaPelicula = {
+    Titulo: titulo,
+    Director: director,
+    Sinopsis: sinopsis,
+    Reparto: reparto,
+    Duracion: duracion,
+    Genero: genero,
+    Estreno: estreno,
+    Trailer: trailer,
+    Imagen: imagen,
+  };
+
+  axios.post('http://localhost:7058/api/Peliculas', { pelicula: nuevaPelicula })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error('Error al insertar la película:', error);
+    });
+};
+
+
+
 
   return (
     <div className='w-75 mx-auto bg-light px-5 pt-3 pb-3 rounded'>
