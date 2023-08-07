@@ -35,8 +35,10 @@ const handleSubmit = (e) => {
     Trailer: trailer,
     Imagen: imagen,
   };
+  
+  const { Titulo, Director, Sinopsis, Reparto, Duracion, Genero, Estreno, Trailler, Imagen } =nuevaPelicula
 
-  axios.post('http://localhost:7058/api/Peliculas', { pelicula: nuevaPelicula })
+  axios.post('http://localhost:7058/api/Peliculas', { Titulo, Director, Sinopsis, Reparto, Duracion, Genero, Estreno, Trailler, Imagen })
     .then((response) => {
       console.log(response.data);
     })
